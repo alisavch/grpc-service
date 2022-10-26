@@ -22,7 +22,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type HasherClient interface {
-	// A Bidirectional streaming RPC.
+	// A unary streaming RPC.
 	Convert(ctx context.Context, in *InputNote, opts ...grpc.CallOption) (*OutputNote, error)
 }
 
@@ -47,7 +47,7 @@ func (c *hasherClient) Convert(ctx context.Context, in *InputNote, opts ...grpc.
 // All implementations must embed UnimplementedHasherServer
 // for forward compatibility
 type HasherServer interface {
-	// A Bidirectional streaming RPC.
+	// A unary streaming RPC.
 	Convert(context.Context, *InputNote) (*OutputNote, error)
 	mustEmbedUnimplementedHasherServer()
 }

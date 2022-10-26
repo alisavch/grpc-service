@@ -18,6 +18,6 @@ message OutputNote {
 
 // Interface exported by the server.
 service Hasher {
-  // A Bidirectional streaming RPC.
+  // A unary streaming RPC.
   rpc Convert(InputNote) returns (OutputNote) {};
 }
