@@ -21,6 +21,7 @@ func newServer() *server {
 	return s
 }
 
+// Convert method converts the input message into a hash.
 func (s *server) Convert(ctx context.Context, request *api.InputNote) (*api.OutputNote, error) {
 	encoding := base64.StdEncoding.EncodeToString([]byte(request.Message))
 	output := &api.OutputNote{
