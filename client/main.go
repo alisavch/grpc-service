@@ -40,17 +40,16 @@ func main() {
 	client := api.NewHasherClient(conn)
 	scanner := bufio.NewScanner(os.Stdin)
 	for {
-	readInput:
 		for {
 			fmt.Print("Enter the message: ")
 			scanner.Scan()
 			inputMessage = scanner.Text()
 			if len(inputMessage) != 0 {
 				fmt.Println(inputMessage)
-				break readInput
+				break
 			} else {
 				fmt.Println("Please enter the text")
-				continue readInput
+				continue
 			}
 		}
 
