@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package hasher;
+
+option go_package = "pkg/api";
+
+// A message to send to get a hash.
+message InputNote {
+  // The input text message.
+  string message = 1;
+}
+
+// The message being received from the converter.
+message OutputNote {
+  // The transformed message.
+  string message = 1;
+}
+
+// Interface exported by the server.
+service Hasher {
+  // A unary streaming RPC.
+  rpc Convert(InputNote) returns (OutputNote) {};
+}
